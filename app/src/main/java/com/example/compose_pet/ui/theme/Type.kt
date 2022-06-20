@@ -1,4 +1,4 @@
-package com.example.compose_pet.feature_menu.presentation.theme
+package com.example.compose_pet.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

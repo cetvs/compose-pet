@@ -1,5 +1,6 @@
-package com.example.compose_pet.feature_menu.presentation
+package com.example.compose_pet.feature_menu.presentation.menu.component
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -14,20 +15,28 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.compose_pet.R
 import com.example.compose_pet.feature_menu.domain.model.MenuItem
+import com.example.compose_pet.feature_menu.presentation.menu.MenuViewModel
 
 //@Preview
 @Composable
-fun FoodHomeList() {
+fun FoodMenuList(
+    viewModel: MenuViewModel = hiltViewModel()
+) {
+//    viewModel.addMenuItem(food)
+//    val foods = remember { viewModel.state.value }
+//    viewModel.getMenuItems()
+
     Surface {
         LazyColumn(
-//            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp)
         ) {
             items(
                 count = foods.size,
@@ -76,21 +85,8 @@ private fun PizzaImage(imageId: Int) {
         contentDescription = null,
         modifier = Modifier
             .padding(8.dp)
-
     )
 }
 
-@Composable
-private fun PizzaPrice(price: Int) {
-    val color = Color.Magenta
-    Text(
-        modifier = Modifier
-            .border(BorderStroke(1.dp, color = color))
-            .padding(8.dp),
-        text = "от $price р",
-        color = color
-    )
-}
-
-val food = MenuItem("pizza", "is pizze", "pizza", 400, R.drawable.pizza)
-val foods = listOf(food, food.copy(name = "2 pizza"), food.copy(name = "3 pizza"))
+val food = MenuItem(1, "pizza", "is pizze", "pizza", 400, R.drawable.pizza)
+val foods = listOf<MenuItem>(food, food.copy(name = "2 pizza"), food.copy(name = "3 pizza"))
