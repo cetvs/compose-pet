@@ -1,8 +1,5 @@
 package com.example.compose_pet.feature_menu.presentation.menu
 
-import android.util.Log
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compose_pet.feature_menu.domain.model.MenuItem
@@ -17,14 +14,11 @@ import javax.inject.Inject
 class MenuViewModel @Inject constructor(
     private val menuUseCases: MenuUseCases
 ) : ViewModel() {
+    var flow: Flow<List<MenuItem>> = flow<List<MenuItem>>(){}
 
-    private var _state = mutableStateOf(listOf<MenuItem>())
-    val state: State<List<MenuItem>> = _state
+    fun getMenuItems() : Flow<List<MenuItem>>{
+        return menuUseCases.getMenuItems()
 
-    fun getMenuItems() {
-            menuUseCases.getMenuItems().onEach{
-                _state.value = it
-            }.launchIn(viewModelScope)
     }
 
     fun addMenuItem(menuItem: MenuItem) {

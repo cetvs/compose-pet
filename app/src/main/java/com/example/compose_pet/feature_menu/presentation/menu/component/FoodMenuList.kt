@@ -10,11 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,14 +25,12 @@ import com.example.compose_pet.R
 import com.example.compose_pet.feature_menu.domain.model.MenuItem
 import com.example.compose_pet.feature_menu.presentation.menu.MenuViewModel
 
-//@Preview
 @Composable
 fun FoodMenuList(
-    viewModel: MenuViewModel = hiltViewModel()
+    viewModel: MenuViewModel = hiltViewModel(),
 ) {
-//    viewModel.addMenuItem(food)
-//    val foods = remember { viewModel.state.value }
-//    viewModel.getMenuItems()
+    val state = viewModel.getMenuItems().collectAsState(initial = listOf())
+    val foods = state.value
 
     Surface {
         LazyColumn(
@@ -73,7 +70,6 @@ fun FoodListItem(menuItem: MenuItem) {
                 text = "от ${menuItem.price} р",
                 color = color,
             )
-//            PizzaPrice(price = foodItem.price)
         }
     }
 }
@@ -89,4 +85,4 @@ private fun PizzaImage(imageId: Int) {
 }
 
 val food = MenuItem(1, "pizza", "is pizze", "pizza", 400, R.drawable.pizza)
-val foods = listOf<MenuItem>(food, food.copy(name = "2 pizza"), food.copy(name = "3 pizza"))
+//val foods = listOf<MenuItem>(food, food.copy(name = "2 pizza"), food.copy(name = "3 pizza"))

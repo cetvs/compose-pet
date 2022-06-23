@@ -1,32 +1,31 @@
 package com.example.compose_pet.feature_menu.presentation.bottom_navigation.model
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.ui.graphics.vector.ImageVector
+import com.example.compose_pet.R
 
 sealed class BottomNavItem(
     val name: String,
     val route: String,
-    val icon: ImageVector,
+    val icon: Int,
     val badgeCount: Int = 0
 ) {
     object Menu : BottomNavItem(
         route = "menu",
-        name = "Menu",
-        icon = Icons.Default.Home
+        name = "Меню",
+        icon = R.drawable.ic_menu
     )
 
     object Profile : BottomNavItem(
         route = "profile",
-        name = "Profile",
-        icon = Icons.Default.Person
+        name = "Профиль",
+        icon =  R.drawable.ic_profile
     )
 
     object ShoppingCart : BottomNavItem(
         route = "shoppingCart",
-        name = "ShoppingCart",
-        icon = Icons.Default.ShoppingCart
+        name = "Корзина",
+        icon = R.drawable.ic_shopping_cart
     )
 }
