@@ -31,31 +31,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
-@Preview
-@Composable
-fun Test() {
-    var state = remember { mutableStateOf(0) }
-    val titles = listOf("TAB 1", "TAB 2", "TAB 3 WITH LOTS OF TEXT")
-
-    Column {
-        TabRow(selectedTabIndex = state.value) {
-            titles.forEachIndexed { index, title ->
-                Tab(
-                    text = { Text(title) },
-                    selected = state.value == index,
-                    onClick = { state.value = index }
-                )
-            }
-        }
-        Text(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Text tab ${state.value + 1} selected",
-            style = MaterialTheme.typography.body1
-        )
-    }
-}
-
 @ExperimentalFoundationApi
 @ExperimentalPagerApi
 @Preview

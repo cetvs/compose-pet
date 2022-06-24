@@ -1,19 +1,14 @@
-package com.example.compose_pet.feature_menu.presentation.menu
+package com.example.compose_pet.feature_menu.presentation.menu.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.compose_pet.feature_menu.presentation.TabItem
-import com.example.compose_pet.ui.theme.CustomGray
 import com.example.compose_pet.ui.theme.CustomPurple
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -23,12 +18,12 @@ import kotlinx.coroutines.launch
 
 @ExperimentalPagerApi
 @Composable
-fun CategoryTab() {
+fun MenuWithCategoryTab() {
     val tabs = listOf(TabItem.Pizza, TabItem.Combo, TabItem.Dessert, TabItem.Beverages)
     val pagerState = rememberPagerState(initialPage = 0)
 
-    Column {
-        Tabs(tabs = tabs, pagerState = pagerState)
+    Column(modifier = Modifier.fillMaxSize()) {
+//        Tabs(tabs = tabs, pagerState = pagerState)
         TabsContent(tabs = tabs, pagerState = pagerState)
     }
 }
@@ -74,7 +69,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
 @ExperimentalPagerApi
 @Composable
 fun TabsContent(tabs: List<TabItem>, pagerState: PagerState) {
-    HorizontalPager(count = tabs.size, state = pagerState) { page ->
+    HorizontalPager(count = tabs.size, modifier = Modifier.fillMaxSize(), state = pagerState) { page ->
         tabs[page].screen()
     }
 }

@@ -1,20 +1,13 @@
 package com.example.compose_pet.feature_menu.presentation.menu.component
 
-import android.util.Log
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,20 +19,18 @@ import com.example.compose_pet.feature_menu.domain.model.MenuItem
 import com.example.compose_pet.feature_menu.presentation.menu.MenuViewModel
 
 @Composable
-fun FoodMenuList(
+fun MenuList(
     viewModel: MenuViewModel = hiltViewModel(),
 ) {
     val state = viewModel.getMenuItems().collectAsState(initial = listOf())
     val foods = state.value
 
-    Surface {
-        LazyColumn(
-        ) {
+    Surface(modifier = Modifier.fillMaxHeight()) {
+        LazyColumn(modifier = Modifier.fillMaxHeight()) {
             items(
                 count = foods.size,
                 itemContent = {
-                    FoodListItem(foods[it])
-                    Divider(color = Color.LightGray, thickness = 1.dp)
+                    MenuListItem(foods[it])
                 }
             )
         }
@@ -47,9 +38,9 @@ fun FoodMenuList(
 }
 
 @Composable
-fun FoodListItem(menuItem: MenuItem) {
+fun MenuListItem(menuItem: MenuItem) {
     Row() {
-        PizzaImage(menuItem.image)
+        MenuItemImage(R.drawable.pizza)
         Column(
             modifier = Modifier
                 .padding(16.dp)
@@ -75,7 +66,7 @@ fun FoodListItem(menuItem: MenuItem) {
 }
 
 @Composable
-private fun PizzaImage(imageId: Int) {
+private fun MenuItemImage(imageId: Int) {
     Image(
         painter = painterResource(id = imageId),
         contentDescription = null,
