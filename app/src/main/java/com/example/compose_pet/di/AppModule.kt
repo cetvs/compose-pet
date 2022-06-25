@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.example.compose_pet.feature_menu.data.repository.MenuRepositoryImpl
 import com.example.compose_pet.feature_menu.data.source.local.AppDatabase
 import com.example.compose_pet.feature_menu.domain.repository.MenuRepository
-import com.example.compose_pet.feature_menu.domain.usecase.AddMenuItem
-import com.example.compose_pet.feature_menu.domain.usecase.DeleteMenuItem
-import com.example.compose_pet.feature_menu.domain.usecase.GetMenuItems
-import com.example.compose_pet.feature_menu.domain.usecase.MenuUseCases
+import com.example.compose_pet.feature_menu.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +38,8 @@ object AppModule {
         return MenuUseCases(
             getMenuItems = GetMenuItems(menuRepository),
             deleteMenuItems = DeleteMenuItem(menuRepository),
-            addMenuItem = AddMenuItem(menuRepository)
+            addMenuItem = AddMenuItem(menuRepository),
+            deleteAllMenuItems = DeleteAllMenuItems(menuRepository)
         )
     }
 }

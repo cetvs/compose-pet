@@ -7,4 +7,5 @@ interface MenuRepository {
     fun getMenuItems(): Flow<List<MenuItem>>
     fun deleteMenuItems(menuItems: MenuItem)
     fun addMenuItem(menuItem: MenuItem)
+    fun deleteAllMenuItems()
 }

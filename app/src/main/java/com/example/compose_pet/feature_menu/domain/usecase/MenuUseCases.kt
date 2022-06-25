@@ -4,5 +4,5 @@ class MenuUseCases(
     val getMenuItems: GetMenuItems,
     val deleteMenuItems: DeleteMenuItem,
     val addMenuItem: AddMenuItem,
-) {
-}
+    val deleteAllMenuItems: DeleteAllMenuItems
+)

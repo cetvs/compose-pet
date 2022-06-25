@@ -12,6 +12,9 @@ interface MenuDao {
     @Query("SELECT * FROM menuItem")
     fun getMenuItems(): Flow<List<MenuItem>>
 
+    @Query("DELETE FROM menuItem")
+    fun deleteAllMenuItems()
+
     @Delete
     fun deleteMenuItem(menuItem: MenuItem)
 

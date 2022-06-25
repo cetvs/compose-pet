@@ -14,11 +14,16 @@ import javax.inject.Inject
 class MenuViewModel @Inject constructor(
     private val menuUseCases: MenuUseCases
 ) : ViewModel() {
-    var flow: Flow<List<MenuItem>> = flow<List<MenuItem>>(){}
+//    var flow: Flow<List<MenuItem>> = flow<List<MenuItem>>(){}
 
     fun getMenuItems() : Flow<List<MenuItem>>{
         return menuUseCases.getMenuItems()
+    }
 
+    fun deleteAllMenuItems(){
+        viewModelScope.launch(Dispatchers.IO) {
+            menuUseCases.deleteAllMenuItems()
+        }
     }
 
     fun addMenuItem(menuItem: MenuItem) {

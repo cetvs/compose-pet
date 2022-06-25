@@ -14,8 +14,11 @@ class MenuRepositoryImpl(
     private val menuDao: MenuDao
 ) : MenuRepository {
     override fun getMenuItems(): Flow<List<MenuItem>> {
-        GlobalScope.launch { Log.v("smehno", menuDao.getMenuItems().count().toString()) }
         return menuDao.getMenuItems()
+    }
+
+    override fun deleteAllMenuItems(){
+        menuDao.deleteAllMenuItems()
     }
 
     override fun deleteMenuItems(menuItem: MenuItem) {
