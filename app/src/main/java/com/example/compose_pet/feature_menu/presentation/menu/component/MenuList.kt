@@ -24,15 +24,6 @@ fun MenuList(
     menuListState: LazyListState,
     viewModel: MenuViewModel = hiltViewModel(),
 ) {
-//    viewModel.deleteAllMenuItems()
-//    viewModel.addMenuItem(food1)
-//    viewModel.addMenuItem(food2)
-//    viewModel.addMenuItem(food3)
-//    viewModel.addMenuItem(food2.copy(id = 4))
-//    viewModel.addMenuItem(food2.copy(id = 5))
-//    viewModel.addMenuItem(food2.copy(id = 6))
-//    viewModel.addMenuItem(food2.copy(id = 7))
-//    viewModel.addMenuItem(food2.copy(id = 8))
     val state = viewModel.getMenuItems().collectAsState(initial = listOf())
     val foods = state.value
 
@@ -88,29 +79,3 @@ private fun MenuItemImage(imageId: Int) {
             .size(135.dp)
     )
 }
-
-val food1 = MenuItem(
-    1,
-    "Ветчина и грибы",
-    "Ветчина,шампиньоны, увеличинная порция моцареллы, томатный соус",
-    "pizza",
-    345,
-    R.drawable.pizza
-)
-val food2 = MenuItem(
-    2,
-    "Баварские колбаски",
-    "Баварские колбаски, ветчина,пикантная пепперони, острая чоризо,томатный соус",
-    "pizza",
-    345,
-    R.drawable.pizza
-)
-val food3 = MenuItem(
-    3,
-    "Нежный лосось",
-    "Лосось, томаты, оливки,соус песто,помидорки черри",
-    "pizza",
-    345,
-    R.drawable.pizza
-)
-//val foods = listOf<MenuItem>(food, food.copy(name = "2 pizza"), food.copy(name = "3 pizza"))
