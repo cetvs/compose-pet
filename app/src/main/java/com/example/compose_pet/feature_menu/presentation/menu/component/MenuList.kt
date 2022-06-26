@@ -27,6 +27,7 @@ fun MenuList(
 //    viewModel.deleteAllMenuItems()
 //    viewModel.addMenuItem(food1)
 //    viewModel.addMenuItem(food2)
+//    viewModel.addMenuItem(food3)
 //    viewModel.addMenuItem(food2.copy(id = 4))
 //    viewModel.addMenuItem(food2.copy(id = 5))
 //    viewModel.addMenuItem(food2.copy(id = 6))
