@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.model.BottomNavItem
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.BottomNavGraph
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.BottomNavigationBar
+import com.example.compose_pet.feature_menu.presentation.menu.component.TestAnimation
 import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MainScreen()
+//            TestAnimation()
         }
     }
 }

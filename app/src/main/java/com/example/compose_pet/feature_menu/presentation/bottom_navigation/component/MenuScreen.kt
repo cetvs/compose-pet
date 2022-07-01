@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -18,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.compose_pet.R
 import com.example.compose_pet.feature_menu.presentation.menu.component.MenuWithCategoryTab
+import com.example.compose_pet.feature_menu.presentation.menu.component.StockList
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalFoundationApi
@@ -32,48 +35,13 @@ fun MenuScreen() {
     }
 
     Column() {
+        Row(modifier = Modifier ) {
+            Text(text = "Moсква", style = MaterialTheme.typography.h6)
+        }
         AnimatedVisibility(visible) {
             StockList(lstOfStock)
         }
         MenuWithCategoryTab(menuListState)
-    }
-}
-
-@Composable
-fun StockList(list: List<Int>) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(100.dp)
-    ) {
-        BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
-            LazyRow(
-                state = rememberLazyListState(),
-            ) {
-                items(
-                    count = list.size,
-                    itemContent = {
-                        StockListItem(list[it])
-                    }
-                )
-            }
-        }
-    }
-
-}
-
-@Composable
-fun StockListItem(imageId: Int) {
-    Row(
-        modifier = Modifier
-            .background(Color.Blue)
-            .size(230.dp, 100.dp)
-    ) {
-        Image(
-            modifier = Modifier.size(300.dp, 112.dp),
-            painter = painterResource(id = imageId),
-            contentDescription = null
-        )
     }
 }
 
