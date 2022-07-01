@@ -17,7 +17,7 @@ fun StockList(list: List<Int>) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(100.dp)
+            .height(120.dp)
     ) {
         BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
             LazyRow(
@@ -39,10 +39,10 @@ fun StockListItem(imageId: Int) {
     Row(
         modifier = Modifier
             .background(Color.Blue)
-            .size(230.dp, 100.dp)
+            .size(300.dp, 120.dp)
     ) {
         Image(
-            modifier = Modifier.size(300.dp, 112.dp),
+            modifier = Modifier.size(300.dp),
             painter = painterResource(id = imageId),
             contentDescription = null
         )

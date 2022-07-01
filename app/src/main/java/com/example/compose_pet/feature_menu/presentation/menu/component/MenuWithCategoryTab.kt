@@ -1,18 +1,20 @@
 package com.example.compose_pet.feature_menu.presentation.menu.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ScrollableTabRow
+import androidx.compose.material.Tab
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.compose_pet.feature_menu.presentation.Category
 import com.example.compose_pet.feature_menu.presentation.TabItem
-import com.example.compose_pet.feature_menu.presentation.bottom_navigation.component.MenuScreen
 import com.example.compose_pet.ui.theme.CustomPurple
+import com.example.compose_pet.ui.theme.LightCustomPurple
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
@@ -41,6 +43,7 @@ fun MenuWithCategoryTab(menuListState: LazyListState) {
 @Composable
 fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
+    var selectedColor by remember { mutableStateOf(Color.White) }
 
     ScrollableTabRow(
         selectedTabIndex = pagerState.currentPage,
@@ -50,6 +53,7 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
         backgroundColor = Color.White
     ) {
         tabs.forEachIndexed { index, data ->
+            selectedColor = if (pagerState.currentPage == index) LightCustomPurple else Color.White
             Tab(
                 selected = pagerState.currentPage == index,
                 onClick = {
@@ -64,7 +68,8 @@ fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {
                         width = 1.dp,
                         color = Color.LightGray,
                         shape = RoundedCornerShape(7.dp)
-                    ),
+                    )
+                    .background(selectedColor, shape = RoundedCornerShape(7.dp)),
 //                    .shadow(1.dp, shape = RoundedCornerShape(14.dp), true),
                 selectedContentColor = CustomPurple,
                 unselectedContentColor = Color.Gray,
@@ -89,5 +94,5 @@ fun TabsContent(tabs: List<TabItem>, pagerState: PagerState) {
 
 const val PIZZA = "Пицца"
 const val COMBO = "Комбо"
-const val DESSERT = "Десерт"
+const val DESSERT = "Десерты"
 const val BEVERAGES = "Напитки"
