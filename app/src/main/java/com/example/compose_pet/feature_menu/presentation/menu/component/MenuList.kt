@@ -6,10 +6,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -62,7 +63,7 @@ fun MenuListItem(menuItem: MenuItem) {
                 .fillMaxWidth()
         ) {
             Text(menuItem.name, style = MaterialTheme.typography.h6)
-            Text(menuItem.description, style = MaterialTheme.typography.caption, )
+            Text(menuItem.description, style = MaterialTheme.typography.caption)
             val color = Color.Red
             PriceText(menuItem, color)
         }

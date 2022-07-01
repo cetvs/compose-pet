@@ -7,7 +7,7 @@ class DeleteMenuItem (
     private val repository: MenuRepository
 ){
 
-    suspend operator fun invoke(menuItems: MenuItem){
+    operator fun invoke(menuItems: MenuItem){
         repository.deleteMenuItems(menuItems)
     }
 }

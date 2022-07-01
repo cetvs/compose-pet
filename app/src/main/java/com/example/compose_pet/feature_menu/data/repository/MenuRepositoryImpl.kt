@@ -17,7 +17,7 @@ class MenuRepositoryImpl(
         return menuDao.getMenuItems()
     }
 
-    override fun deleteAllMenuItems(){
+    override fun deleteAllMenuItems() {
         menuDao.deleteAllMenuItems()
     }
 

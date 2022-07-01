@@ -2,20 +2,13 @@ package com.example.compose_pet.feature_menu.presentation.bottom_navigation.comp
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.compose_pet.R
@@ -33,10 +26,33 @@ fun MenuScreen() {
             menuListState.firstVisibleItemIndex == 0 || menuListState.firstVisibleItemIndex == 1
         }
     }
+    var expandedCity by remember { mutableStateOf(false) }
 
     Column() {
-        Row(modifier = Modifier ) {
-            Text(text = "Moсква", style = MaterialTheme.typography.h6)
+        Row(modifier = Modifier.padding()) {
+            Text(
+                modifier = Modifier.padding(16.dp, 42.dp, 0.dp, 0.dp),
+                text = "Moсква",
+                style = MaterialTheme.typography.h6
+            )
+            IconButton(
+                modifier = Modifier.padding(6.dp, 32.dp, 0.dp, 0.dp),
+                onClick = { expandedCity = true }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_choose_city),
+                    contentDescription = null
+                )
+            }
+            DropdownMenu(expanded = expandedCity, onDismissRequest = { expandedCity = false }) {
+                DropdownMenuItem(onClick = { /* Handle refresh! */ }) {
+                    Text("Refresh")
+                }
+            }
+            Icon(
+                painter = painterResource(id = R.drawable.ic_qr_code),
+                contentDescription = null,
+                modifier = Modifier.padding(220.dp, 42.dp, 0.dp, 0.dp)
+            )
         }
         AnimatedVisibility(visible) {
             StockList(lstOfStock)

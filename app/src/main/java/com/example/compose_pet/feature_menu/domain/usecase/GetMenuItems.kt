@@ -4,11 +4,10 @@ import com.example.compose_pet.R
 import com.example.compose_pet.feature_menu.domain.model.MenuItem
 import com.example.compose_pet.feature_menu.domain.repository.MenuRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 
-class GetMenuItems (
+class GetMenuItems(
     private val repository: MenuRepository
-){
+) {
     operator fun invoke(): Flow<List<MenuItem>> {
         return repository.getMenuItems()
 //        return MutableStateFlow(listOf(food))
