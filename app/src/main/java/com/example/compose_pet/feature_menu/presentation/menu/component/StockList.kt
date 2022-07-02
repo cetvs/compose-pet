@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.example.compose_pet.R
 
 @Composable
 fun StockList(list: List<Int>) {
@@ -48,5 +47,3 @@ fun StockListItem(imageId: Int) {
         )
     }
 }
-
-val lstOfStock = listOf(R.drawable.stock, R.drawable.stock)

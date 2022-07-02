@@ -36,7 +36,6 @@ fun MenuList(
 //    viewModel.addMenuItem(food2.copy(id = 8))
     val state = viewModel.getMenuItems().collectAsState(initial = listOf())
     val foods = state.value
-
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -86,7 +85,6 @@ private fun PriceText(menuItem: MenuItem, color: Color) {
         )
     }
 }
-
 
 @Composable
 private fun MenuItemImage(imageId: Int) {
