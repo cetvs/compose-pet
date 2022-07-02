@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -25,6 +26,7 @@ fun MenuList(
     menuListState: LazyListState,
     viewModel: MenuViewModel = hiltViewModel(),
 ) {
+//    TODO("Make get request for data")
 //    viewModel.deleteAllMenuItems()
 //    viewModel.addMenuItem(food1)
 //    viewModel.addMenuItem(food2)
@@ -61,17 +63,22 @@ fun MenuListItem(menuItem: MenuItem) {
                 .padding(8.dp, 16.dp)
                 .fillMaxWidth()
         ) {
-            Text(menuItem.name, style = MaterialTheme.typography.h6)
-            Text(menuItem.description, style = MaterialTheme.typography.caption)
+            Text(text = menuItem.name, style = MaterialTheme.typography.h6)
+            Text(
+                text = menuItem.description,
+                modifier = Modifier.padding(0.dp, 8.dp, 0.dp, 0.dp),
+                style = MaterialTheme.typography.body2
+            )
             val color = Color.Red
             PriceText(menuItem, color)
         }
     }
+    Divider(color = Color.LightGray, thickness = 1.dp)
 }
 
 @Composable
 private fun PriceText(menuItem: MenuItem, color: Color) {
-    Row(modifier = Modifier.padding(105.dp, 45.dp, 0.dp, 0.dp)) {
+    Row(modifier = Modifier.padding(105.dp, 15.dp, 0.dp, 0.dp)) {
         Text(
             text = "от ${menuItem.price} р",
             modifier = Modifier

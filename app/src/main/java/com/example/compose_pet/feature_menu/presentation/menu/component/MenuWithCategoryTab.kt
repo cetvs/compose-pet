@@ -48,13 +48,6 @@ fun MenuWithCategoryTab(visibleState: MutableState<Boolean>) {
     }
 }
 
-private fun visibleMenuListState(
-    visibleState: MutableState<Boolean>,
-    menuListState: LazyListState
-) {
-    visibleState.value = menuListState.firstVisibleItemIndex == 0
-}
-
 @ExperimentalPagerApi
 @Composable
 fun Tabs(tabs: List<TabItem>, pagerState: PagerState) {

@@ -18,7 +18,7 @@ fun TopBar(expandedCityState: MutableState<Boolean>) {
     Row() {
         Text(
             modifier = Modifier.padding(16.dp, 42.dp, 0.dp, 0.dp),
-            text = "Moсква",
+            text = MOSCOW,
             style = MaterialTheme.typography.h6
         )
         IconButton(
@@ -31,10 +31,10 @@ fun TopBar(expandedCityState: MutableState<Boolean>) {
         }
         DropdownMenu(expanded = expandedCity, onDismissRequest = { expandedCity = false }) {
             DropdownMenuItem(onClick = { /* Handle refresh! */ }) {
-                Text("Санкт-Петербург")
+                Text(SAINT_PETERSBURG)
             }
             DropdownMenuItem(onClick = { /* Handle refresh! */ }) {
-                Text("Воронеж")
+                Text(VORONEZH)
             }
         }
         Icon(
@@ -44,3 +44,7 @@ fun TopBar(expandedCityState: MutableState<Boolean>) {
         )
     }
 }
+
+private const val MOSCOW = "Moсква"
+private const val VORONEZH = "Воронеж"
+private const val SAINT_PETERSBURG = "Санкт-Петербург"
