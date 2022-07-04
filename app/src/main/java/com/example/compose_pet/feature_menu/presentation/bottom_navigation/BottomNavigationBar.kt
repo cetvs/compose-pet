@@ -17,8 +17,8 @@ import com.example.compose_pet.feature_menu.presentation.bottom_navigation.compo
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.component.ProfileScreen
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.component.ShoppingCartScreen
 import com.example.compose_pet.feature_menu.presentation.bottom_navigation.model.BottomNavItem
-import com.example.compose_pet.ui.theme.CustomGray
-import com.example.compose_pet.ui.theme.CustomPurple
+import com.example.compose_pet.feature_menu.presentation.ui.theme.CustomGray
+import com.example.compose_pet.feature_menu.presentation.ui.theme.CustomPurple
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalFoundationApi

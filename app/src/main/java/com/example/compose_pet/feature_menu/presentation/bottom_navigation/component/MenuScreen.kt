@@ -12,7 +12,7 @@ import com.example.compose_pet.R
 import com.example.compose_pet.feature_menu.presentation.menu.component.MenuWithCategoryTab
 import com.example.compose_pet.feature_menu.presentation.menu.component.StockList
 import com.example.compose_pet.feature_menu.presentation.menu.component.TopBar
-import com.example.compose_pet.ui.theme.LightGray
+import com.example.compose_pet.feature_menu.presentation.ui.theme.LightGray
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 @ExperimentalFoundationApi

@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.compose_pet.feature_menu.presentation.TabItem
-import com.example.compose_pet.ui.theme.CustomPurple
-import com.example.compose_pet.ui.theme.LightCustomPurple
+import com.example.compose_pet.feature_menu.presentation.ui.theme.CustomPurple
+import com.example.compose_pet.feature_menu.presentation.ui.theme.LightCustomPurple
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
